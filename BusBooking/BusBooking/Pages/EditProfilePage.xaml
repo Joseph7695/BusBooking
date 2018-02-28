@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusBooking.Pages.EditProfilePage">
+    <ContentPage.Content>
+        <StackLayout>
+                <Entry Text="{Binding UserInfo.Email}"/>
+                <Entry Text="{Binding UserInfo.LoginProvider}"/>
+                <Switch Text="Has Registered"
+                    On="{Binding UserInfo.HasRegistered}"/>
+
+                <Entry Text="{Binding UserPersonalDetail.Id}"/>
+                <Entry Text="{Binding UserPersonalDetail.FullName}"/>
+                <Entry Text="{Binding UserPersonalDetail.Address}"/>
+                <Entry Text="{Binding UserPersonalDetail.AspNetUserId}"/>
+                <Entry Text="{Binding UserPersonalDetail.IdentificationNumber}"/>
+                <Entry Text="{Binding UserPersonalDetail.ContactNumber}"/>
+
+                <Button Text="Save Changes" Clicked="SaveChangesButton_Clicked"/>
+                <Button Text="Log Out" Clicked="LogoutButton_Clicked"/>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -23,5 +23,17 @@ namespace BusBooking.ViewModels
             Username = Settings.Username;
             Password = Settings.Password;
         }
+
+        public ICommand LoginCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    var accesstoken = await _apiServices.LoginAsync(Username, password);
+                    Settings.AccessToken = accesstoken;
+                });
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusBooking.Helpers;
+using BusBooking.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,14 @@ namespace BusBooking
         private void SetMainPage()
         {
             if (!string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                if (DateTime.UtcNow.AddHours(1) > Settings.AccessTokenExpiration)
+                {
+                    var vm = new LoginViewModel();
+                    vm.LoginCommand.Execute(null);
+                }
                 MainPage = new NavigationPage(new BusBooking.MainPage());
+            }
             else if (!string.IsNullOrEmpty(Settings.Username)
                 && !string.IsNullOrEmpty(Settings.Password))
                 MainPage = new NavigationPage(new BusBooking.Pages.LoginPage());

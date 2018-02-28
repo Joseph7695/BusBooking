@@ -7,23 +7,31 @@
     <ContentPage.BindingContext>
         <ViewModels:AccountViewModel/>
     </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Command="{Binding LogoutCommand}"
+                     Clicked="LogoutButton_Clicked"/>
+    </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <!--<ListView ItemsSource="{Binding UserInfo}"
-                  HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <TextCell Text="{Binding UserInfo.Email}" />
-                            <TextCell Text="{Binding UserInfo.LoginProvider}" />
-                            <TextCell Text="{Binding UserInfo.HasRegistered}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-        <TableView HasUnevenRows="True"
+        <StackLayout>
+            <Label Text="{Binding UserInfo.Email}"/>
+            <Label Text="{Binding UserInfo.LoginProvider}"/>
+            <Switch Text="Has Registered"
+                    On="{Binding UserInfo.HasRegistered}"/>
+
+            <Label Text="{Binding UserPersonalDetail.Id}"/>
+            <Label Text="{Binding UserPersonalDetail.FullName}"/>
+            <Label Text="{Binding UserPersonalDetail.Address}"/>
+            <Label Text="{Binding UserPersonalDetail.AspNetUserId}"/>
+            <Label Text="{Binding UserPersonalDetail.IdentificationNumber}"/>
+            <Label Text="{Binding UserPersonalDetail.ContactNumber}"/>
+
+            <Button Text="Edit Profile" Clicked="EditProfileButton_Clicked"/>
+            <Button Text="Log Out" Clicked="LogoutButton_Clicked"/>
+        </StackLayout>
+        <!--<TableView HasUnevenRows="True"
                    Intent="Settings"
                    >
             <TableRoot>
@@ -43,7 +51,6 @@
                     <EntryCell Text="{Binding UserPersonalDetail.ContactNumber}" />
                 </TableSection>
             </TableRoot>
-        </TableView>
-        <!--<Button Text="Save Changes" Clicked="SaveChangesButton_Clicked"/>-->
+        </TableView>-->
     </ContentPage.Content>
 </ContentPage>

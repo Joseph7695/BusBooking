@@ -20,15 +20,21 @@ namespace BusBooking.Pages
             InitializeComponent();
         }
 
-        private void SaveChangesButton_Clicked(object sender, EventArgs e)
+        private async void EditProfileButton_Clicked(object sender, EventArgs e)
         {
-            var _apiServices = new ApiServices();
-            
-            if (!string.IsNullOrEmpty(Settings.AccessToken))
-            {
-                var accesstoken = Settings.AccessToken;
-                
-            }
+            //var _apiServices = new ApiServices();
+
+            //if (!string.IsNullOrEmpty(Settings.AccessToken))
+            //{
+            //    var accesstoken = Settings.AccessToken;
+
+            //}
+            await Navigation.PushModalAsync(new EditProfilePage());
+        }
+
+        private async void LogoutButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

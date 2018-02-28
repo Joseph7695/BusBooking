@@ -1,4 +1,5 @@
-﻿using BusBooking.Model;
+﻿using BusBooking.Helpers;
+using BusBooking.Model;
 using BusBooking.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -117,6 +118,9 @@ namespace BusBooking.Services
             JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(jwt);
             
             var accessToken = jwtDynamic.Value<string>("access_token");
+            var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
+            Settings.AccessTokenExpiration = accessTokenExpiration;
+
             //tokenExpireDate = DateTime.Parse(jwtDynamic.Value<string>(""));
             //DateTime.Now
             return accessToken;
