@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusBooking.Pages.HomePage"
+            xmlns:ViewModels="clr-namespace:BusBooking.ViewModels">
+
+    <ContentPage.BindingContext>
+        <ViewModels:LocationViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+        <Picker x:Name="FromPicker" 
+                Title="Location" 
+                ItemsSource="{Binding Location}"
+                ItemDisplayBinding="{Binding Name}" 
+                SelectedItem="{Binding fromLocation, Mode=TwoWay}" 
+                TextColor="White" Margin="0,-10,0,20" 
+                WidthRequest="300" HorizontalOptions="Center" 
+                VerticalOptions="End" >
+        </Picker>
+        <Label Text="{Binding fromLocation.Name}"/>
+        <Label Text="{Binding fromLocation.Id}"/>
+        </StackLayout>
+        <!--<StackLayout>
+        <ListView ItemsSource="{Binding Location}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Location.Name}"/>
+                                <Label Text="{Binding Location.Id}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="From"/>
+            <Picker Title="Pick your current destination"
+                    x:Name="PickerFrom"
+                    ItemsSource="{Binding Location}"
+                    SelectedIndexChanged="PickerFrom_SelectedIndexChanged"
+                    ItemDisplayBinding="{Binding Name}"/>
+
+            <Label Text="To"/>
+            <Picker x:Name="PickerTo"
+                    ItemsSource="{Binding Location}"
+                    SelectedIndexChanged="PickerFrom_SelectedIndexChanged"/>
+
+            <Label Text="Choose Date for the booking"/>
+            <DatePicker MinimumDate="12/30/2017"
+                        MaximumDate="5/1/2018"/>
+
+            <Picker x:Name="FromPicker" 
+                Title="Location" 
+                ItemsSource="{Binding Location}"
+                ItemDisplayBinding="{Binding Name}" 
+                SelectedItem="{Binding FromLocation, Mode=TwoWay}" 
+                TextColor="White" Margin="0,-10,0,20" 
+                WidthRequest="300" HorizontalOptions="Center" 
+                VerticalOptions="End" />
+
+        <Label Text="{Binding Location}"/>
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

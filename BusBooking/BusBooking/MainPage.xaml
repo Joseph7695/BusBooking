@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BusBooking"
+             x:Class="BusBooking.MainPage"
+            xmlns:pages="clr-namespace:BusBooking.Pages"
+             Title="Bus Booking App">
+
+    <!--<TabbedPage.ToolbarItems>
+        --><!--Placeholder--><!--
+    </TabbedPage.ToolbarItems>-->
+
+    <TabbedPage.Children>
+        <pages:HomePage Title="Home" />
+        <!--<pages:HistoryPage Title="History" />-->
+        <pages:AccountPage Title="Account" />
+    </TabbedPage.Children>
+</TabbedPage>

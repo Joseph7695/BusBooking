@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusBooking.Pages.AccountPage"
+             xmlns:ViewModels="clr-namespace:BusBooking.ViewModels">
+
+    <ContentPage.BindingContext>
+        <ViewModels:AccountViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <!--<ListView ItemsSource="{Binding UserInfo}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <TextCell Text="{Binding UserInfo.Email}" />
+                            <TextCell Text="{Binding UserInfo.LoginProvider}" />
+                            <TextCell Text="{Binding UserInfo.HasRegistered}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        <TableView HasUnevenRows="True"
+                   Intent="Settings"
+                   >
+            <TableRoot>
+                <TableSection Title="Account">
+                    <TextCell Text="{Binding UserInfo.Email}" />
+                    <TextCell Text="{Binding UserInfo.LoginProvider}" />
+                    <SwitchCell Text="Has Registered"
+                                On="{Binding UserInfo.HasRegistered}"/>
+                </TableSection>
+
+                <TableSection Title="Details">
+                    <EntryCell Text="{Binding UserPersonalDetail.Id}" />
+                    <EntryCell Text="{Binding UserPersonalDetail.FullName}" />
+                    <EntryCell Text="{Binding UserPersonalDetail.Address}" />
+                    <EntryCell Text="{Binding UserPersonalDetail.AspNetUserId}" />
+                    <EntryCell Text="{Binding UserPersonalDetail.IdentificationNumber}" />
+                    <EntryCell Text="{Binding UserPersonalDetail.ContactNumber}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <!--<Button Text="Save Changes" Clicked="SaveChangesButton_Clicked"/>-->
+    </ContentPage.Content>
+</ContentPage>

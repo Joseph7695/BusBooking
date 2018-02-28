@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusBooking.Pages.HistoryPage"
+             xmlns:ViewModel="clr-namespace:BusBooking.ViewModels">
+
+    <ContentPage.BindingContext>
+        <ViewModel:BusBookingDetailViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <TableView Intent="Data" HasUnevenRows="True">
+            <TableRoot>
+                <TableSection Title="Pending">
+                    <!--<ListView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>-->
+                                <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding busBookingDetail.Id}"/>
+                                    <Label Text="{Binding busBookingDetail.UserDetailId}"/>
+                                    <Label Text="{Binding busBookingDetail.FullName}"/>
+                                    <Label Text="{Binding busBookingDetail.FromLocation}"/>
+                                    <Label Text="{Binding busBookingDetail.ToLocation}"/>
+                                    <Label Text="{Binding busBookingDetail.PickupDateTime}"/>
+                                    <Label Text="{Binding busBookingDetail.BookingStatus}"/>
+                            </StackLayout>
+                        </ViewCell>
+                            <!--</DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>-->
+                </TableSection>
+                <!--<TableSection Title="Confirmed">
+                    <ListView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding busBookingDetail.Id}"/>
+                                    <Label Text="{Binding busBookingDetail.UserDetailId}"/>
+                                    <Label Text="{Binding busBookingDetail.FullName}"/>
+                                    <Label Text="{Binding busBookingDetail.FromLocation}"/>
+                                    <Label Text="{Binding busBookingDetail.ToLocation}"/>
+                                    <Label Text="{Binding busBookingDetail.PickupDateTime}"/>
+                                    <Label Text="{Binding busBookingDetail.BookingStatus}"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </TableSection>
+                <TableSection Title="Cancelled">
+                    <ListView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding busBookingDetail.Id}"/>
+                                    <Label Text="{Binding busBookingDetail.UserDetailId}"/>
+                                    <Label Text="{Binding busBookingDetail.FullName}"/>
+                                    <Label Text="{Binding busBookingDetail.FromLocation}"/>
+                                    <Label Text="{Binding busBookingDetail.ToLocation}"/>
+                                    <Label Text="{Binding busBookingDetail.PickupDateTime}"/>
+                                    <Label Text="{Binding busBookingDetail.BookingStatus}"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </TableSection>-->
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>
