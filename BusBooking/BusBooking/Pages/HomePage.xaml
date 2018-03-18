@@ -19,6 +19,7 @@
                 WidthRequest="300" HorizontalOptions="Center" 
                 VerticalOptions="End" >
         </Picker>
+        
         <Label Text="{Binding fromLocation.Name}"/>
         <Label Text="{Binding fromLocation.Id}"/>
         </StackLayout>

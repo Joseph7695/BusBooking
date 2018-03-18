@@ -1,23 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BusBooking.Pages.EditProfilePage">
+             x:Class="BusBooking.Pages.EditProfilePage"
+             xmlns:ViewModels="clr-namespace:BusBooking.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <ViewModels:AccountViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
-                <Entry Text="{Binding UserInfo.Email}"/>
-                <Entry Text="{Binding UserInfo.LoginProvider}"/>
-                <Switch Text="Has Registered"
-                    On="{Binding UserInfo.HasRegistered}"/>
+            <Label Text="ID" />
+            <Entry Text="{Binding UserPersonalDetail.Id}"/>
+            <Label Text="Full Name" />
+            <Entry Text="{Binding UserPersonalDetail.FullName}"/>
+            <Label Text="Address" />
+            <Entry Text="{Binding UserPersonalDetail.Address}"/>
+            <Label Text="AspNetUserID" />
+            <!--Additional fields that I think is not suitable-->
+            <!--<Entry Text="{Binding UserPersonalDetail.AspNetUserId}"/>
+            <Label Text="IdentificationNumber" />
+            <Entry Text="{Binding UserPersonalDetail.IdentificationNumber}"/>
+            <Label Text="ContactNumber" />
+            <Entry Text="{Binding UserPersonalDetail.ContactNumber}" />-->
 
-                <Entry Text="{Binding UserPersonalDetail.Id}"/>
-                <Entry Text="{Binding UserPersonalDetail.FullName}"/>
-                <Entry Text="{Binding UserPersonalDetail.Address}"/>
-                <Entry Text="{Binding UserPersonalDetail.AspNetUserId}"/>
-                <Entry Text="{Binding UserPersonalDetail.IdentificationNumber}"/>
-                <Entry Text="{Binding UserPersonalDetail.ContactNumber}"/>
-
-                <Button Text="Save Changes" Clicked="SaveChangesButton_Clicked"/>
-                <Button Text="Log Out" Clicked="LogoutButton_Clicked"/>
-            </StackLayout>
+            <Button Text="Save Changes" Clicked="SaveChangesButton_Clicked"
+                    Command="{Binding SaveChangesCommand}"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

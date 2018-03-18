@@ -19,16 +19,10 @@ namespace BusBooking.Pages
 			InitializeComponent ();
 		}
 
-        private void SaveChangesButton_Clicked(object sender, EventArgs e)
+        private async void SaveChangesButton_Clicked(object sender, EventArgs e)
         {
-            var _apiServices = new ApiServices();
-
-            if (!string.IsNullOrEmpty(Settings.AccessToken))
-            {
-                var accesstoken = Settings.AccessToken;
-
-                // Use put
-            }
+            await Navigation.PopModalAsync();
+            //await Navigation.PopAsync();
         }
     }
 }

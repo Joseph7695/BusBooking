@@ -18,8 +18,7 @@
         <StackLayout>
             <Label Text="{Binding UserInfo.Email}"/>
             <Label Text="{Binding UserInfo.LoginProvider}"/>
-            <Switch Text="Has Registered"
-                    On="{Binding UserInfo.HasRegistered}"/>
+            <Switch IsToggled="{Binding UserInfo.HasRegistered}"/>
 
             <Label Text="{Binding UserPersonalDetail.Id}"/>
             <Label Text="{Binding UserPersonalDetail.FullName}"/>
@@ -30,6 +29,13 @@
 
             <Button Text="Edit Profile" Clicked="EditProfileButton_Clicked"/>
             <Button Text="Log Out" Clicked="LogoutButton_Clicked"/>
+            <Button Text="Testing" 
+                    Command="{Binding TestingLoadCommand}"/>
+            <Button Text="Load Profile with FullName:"
+                    Command="{Binding LoadProfileWithKeywordCommand}"/>
+            <Entry Text="{Binding keyword,
+                                  Mode=TwoWay}" />
+            <!--Clicked="TestingButton_Clicked"-->
         </StackLayout>
         <!--<TableView HasUnevenRows="True"
                    Intent="Settings"

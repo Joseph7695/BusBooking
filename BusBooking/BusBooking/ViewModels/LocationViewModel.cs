@@ -13,9 +13,9 @@ namespace BusBooking.ViewModels
     public class LocationViewModel
     {
         private ApiServices _apiServices = new ApiServices();
-        private List<Location> _location { get; set; }
+        private Location[] _location { get; set; }
 
-        public List<Location> Location
+        public Location[] Location
         {
             get { return _location; }
             set
@@ -38,9 +38,10 @@ namespace BusBooking.ViewModels
             var accesstoken = Settings.AccessToken;
             if (!string.IsNullOrEmpty(accesstoken))
             {
-                //Location = await _apiServices.GetLocationAsync(accesstoken);
-                //var apiServices = new ApiServices();
                 Location = await _apiServices.GetLocationDetailAsync();
+                //var apiServices = new ApiServices();
+
+                //Location = await _apiServices.GetLocationDetailAsync();
             }
                 
         }

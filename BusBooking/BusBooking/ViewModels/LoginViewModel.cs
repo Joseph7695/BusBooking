@@ -12,7 +12,7 @@ namespace BusBooking.ViewModels
 {
     public class LoginViewModel
     {
-        private INavigation navigation;
+        //private INavigation navigation;
         private ApiServices _apiServices = new ApiServices();
 
         public string Username { get; set; }
@@ -30,7 +30,9 @@ namespace BusBooking.ViewModels
             {
                 return new Command(async () =>
                 {
-                    var accesstoken = await _apiServices.LoginAsync(Username, password);
+                    var accesstoken = await _apiServices.LoginAsync(Username, Password);
+                    Settings.Username = Username;
+                    Settings.Password = Password;
                     Settings.AccessToken = accesstoken;
                 });
             }
